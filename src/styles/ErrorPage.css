@@ -1,0 +1,8 @@
+.text-box-error {
+    background-color: red;
+    flex-direction: column;
+}
+
+.subtitle-error {
+    color: white;
+}

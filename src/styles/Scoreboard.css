@@ -1,0 +1,19 @@
+.scoreboard-wrapper {
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 1);
+}
+
+.score-text {
+    font-size: 1.5rem;
+    font-family: 'Pokemon Font', Inter, sans-serif;
+    color: black;
+    margin: 0.5rem 0;
+}

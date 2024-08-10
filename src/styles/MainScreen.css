@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Pokemon Font';
+    src: url('../assets/pokemon-font.ttf') format('truetype');
+}
+
+.mainscreen-wallpaper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: url('../assets/mainscreen-wallpaper.jpg') no-repeat center center / cover;
+}
+
+.mainscreen-wallpaper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.text-box {
+    z-index: 10;
+    overflow: hidden;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 410px;
+    background: white url('../assets/pokemon-text-box.png') no-repeat center center / contain;
+    color: black;
+    font-family: 'Pokemon Font', Inter, sans-serif;
+    text-align: center;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, 1);
+    border-radius: 0.5rem;
+}
+
+.main-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2rem;
+    margin: 0.1rem 0;
+    font-family: 'Pokemon Font', Inter, sans-serif;
+    text-align: center;
+}
+
+.redTitle {
+    color: red;
+}
+
+.subtitle {
+    font-size: 1rem;
+    max-width: 75%;
+    margin: 0.5rem 0;
+    font-family: 'Pokemon Font', Inter, sans-serif;
+    text-align: center;
+}
+
+p {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    font-family: 'Pokemon Font', Inter, sans-serif;
+}
+
+.difficulty-button {
+    font-family: 'Pokemon Font', Inter, sans-serif;
+    font-size: 1rem;
+    margin: 0.5rem 0.5rem;
+    background-color: green;
+    color: black;
+}
+
+.hard-button {
+    background-color: red;
+}
