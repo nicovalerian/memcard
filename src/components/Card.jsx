@@ -2,7 +2,6 @@ import '../styles/Card.css'
 import PropTypes from 'prop-types';
 
 function Card({ pokemon }) {
-  console.log(pokemon)
   return (
     <div className='card'>
         <img src={pokemon.sprites.front_default} alt={pokemon.name} className='card-image' />

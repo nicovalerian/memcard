@@ -4,7 +4,10 @@
     gap: 1rem;
     padding: 1rem;
     justify-items: center;
+    z-index: 1;
+    height: 80%;
 }
+
 
 .card-grid.easy {
     grid-template-columns: repeat(4, minmax(12rem, 1fr));
