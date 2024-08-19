@@ -11,10 +11,10 @@ function MainScreen() {
                         <h2 className="subtitle">Get points by clicking on an image but don&apos;t click on any more than once!</h2>
                         <p>Select difficulty:</p>
 
-                        <Link to="/level">
+                        <Link to="/level" state={{ difficulty: 'easy' }}>
                             <button className="difficulty-button easy-button">Easy</button>
                         </Link>
-                        <Link to="/level">
+                        <Link to="/level" state={{ difficulty: 'hard' }}>
                             <button className="difficulty-button hard-button">Hard</button>
                         </Link>
                         <p>Current highscore: <b>{0}</b> pts</p>

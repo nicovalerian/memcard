@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import CardGrid from "./CardGrid";
 import Scoreboard from "./Scoreboard";
 import "../styles/Level.css";
 
 function Level() {
+  const location = useLocation();
+  const { difficulty } = location.state || { difficulty: "easy" };
+
   return (
     <>
       <div className="mainscreen-wallpaper">
@@ -15,7 +18,7 @@ function Level() {
             <Scoreboard />
           </div>
           <section className="game-board">
-            <CardGrid />
+            <CardGrid difficulty={difficulty}/>
           </section>
         </div>
       </div>

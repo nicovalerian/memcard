@@ -22,17 +22,8 @@
     z-index: 1;
 }
 
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(12rem, 1fr));
-    gap: 1rem;
-    padding: 1rem;
-    justify-items: center;
-}
-
 .top-board {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
 }

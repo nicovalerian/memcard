@@ -1,0 +1,15 @@
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(12rem, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    justify-items: center;
+}
+
+.card-grid.easy {
+    grid-template-columns: repeat(4, minmax(12rem, 1fr));
+}
+
+.card-grid.hard {
+    grid-template-columns: repeat(5, minmax(12rem, 1fr));
+}

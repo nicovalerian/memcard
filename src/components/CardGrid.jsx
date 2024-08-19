@@ -1,11 +1,21 @@
 import Card from "./Card"
+import PropTypes from 'prop-types';
+import "../styles/CardGrid.css";
 
-function CardGrid() {
-    const cards = Array.from({ length: 16 }, (_, index) => <Card key={index} />);
-    // Create an array of 16 cards, each with a unique key
+function CardGrid({ difficulty }) {
+    let cardCount = 25;
+    if (difficulty === 'easy') {
+        cardCount = 16;
+    }
+    
+    const cards = Array.from({ length: cardCount }, (_, index) => <Card key={index} />);
     return (
-        <div className='card-grid'>{cards}</div>
+        <div className={`card-grid ${difficulty}`}>{cards}</div>
     )
 }
 
-export default CardGrid
+CardGrid.propTypes = {
+    difficulty: PropTypes.string.isRequired,
+};
+
+export default CardGrid;
