@@ -2,6 +2,9 @@
 
 Welcome to **MemCard**, a fun and challenging memory card game! Test your memory and concentration by clicking on unique images and earning points, but be careful—click on an image more than once, and it's game over!
 
+## Live Deployment
+You can check the live deployment here: **https://memcard.vercel.app/**
+
 ## Tech Stack
 
 MemCard is built with the following technologies:
