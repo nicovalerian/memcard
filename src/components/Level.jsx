@@ -10,24 +10,31 @@ function Level() {
   const location = useLocation();
   const { difficulty } = location.state || { difficulty: "easy" };
   const [pokemonData, setPokemonData] = useState([]);
+  const [allPokemonData, setAllPokemonData] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const fetchPokemonData = async () => {
+  const fetchAllPokemonData = async () => {
     try {
       const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=1302');
       const data = await response.json();
-  
-      // Determine the number of Pokémon to fetch based on difficulty
+      setAllPokemonData(data.results);
+      fetchPokemonData(data.results);
+    } catch (error) {
+      console.error("Failed to fetch Pokémon data:", error);
+    }
+  };
+
+  const fetchPokemonData = async (allData) => {
+    try {
       const limit = difficulty === "easy" ? 16 : 25;
-  
-      // Randomly select a subset of Pokémon
       const selectedPokemon = [];
       const usedIndices = new Set();
+  
       while (selectedPokemon.length < limit) {
-        const randomIndex = Math.floor(Math.random() * data.results.length);
+        const randomIndex = Math.floor(Math.random() * allData.length);
         if (!usedIndices.has(randomIndex)) {
           usedIndices.add(randomIndex);
-          selectedPokemon.push(data.results[randomIndex]);
+          selectedPokemon.push(allData[randomIndex]);
         }
       }
   
@@ -44,10 +51,10 @@ function Level() {
   
       // Continue fetching additional Pokémon until we have the required number
       while (filteredPokemonDetails.length < limit) {
-        const randomIndex = Math.floor(Math.random() * data.results.length);
+        const randomIndex = Math.floor(Math.random() * allData.length);
         if (!usedIndices.has(randomIndex)) {
           usedIndices.add(randomIndex);
-          const pokemon = data.results[randomIndex];
+          const pokemon = allData[randomIndex];
           const pokemonResponse = await fetch(pokemon.url);
           const pokemonDetail = await pokemonResponse.json();
           if (pokemonDetail.sprites.front_default) {
@@ -57,20 +64,19 @@ function Level() {
       }
   
       setPokemonData(filteredPokemonDetails);
+      setLoading(false);
     } catch (error) {
       console.error("Failed to fetch Pokémon data:", error);
-    } finally {
-      setLoading(false);
     }
   };
 
   useEffect(() => {
-    fetchPokemonData();
+    fetchAllPokemonData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleRefresh = () => {
-    fetchPokemonData();
+    fetchPokemonData(allPokemonData);
     setCurrentScore(0);
   };
 
