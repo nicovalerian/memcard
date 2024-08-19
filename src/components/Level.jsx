@@ -5,6 +5,8 @@ import Scoreboard from "./Scoreboard";
 import "../styles/Level.css";
 
 function Level() {
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const location = useLocation();
   const { difficulty } = location.state || { difficulty: "easy" };
   const [pokemonData, setPokemonData] = useState([]);
@@ -84,10 +86,17 @@ function Level() {
             <Link to="/">
               <button className="back-button">Back</button>
             </Link>
-            <Scoreboard />
+            <Scoreboard currentScore={currentScore} highScore={highScore} />
           </div>
           <section className="game-board">
-            <CardGrid difficulty={difficulty} pokemonData={pokemonData} />
+            <CardGrid
+              difficulty={difficulty}
+              pokemonData={pokemonData}
+              currentScore={currentScore}
+              setCurrentScore={setCurrentScore}
+              highScore={highScore}
+              setHighScore={setHighScore}
+            />
           </section>
         </div>
       </div>

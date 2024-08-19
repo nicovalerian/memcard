@@ -17,7 +17,6 @@ function MainScreen() {
                         <Link to="/level" state={{ difficulty: 'hard' }}>
                             <button className="difficulty-button hard-button">Hard</button>
                         </Link>
-                        <p>Current highscore: <b>{0}</b> pts</p>
                     </div>
                 </main>
         </div>
